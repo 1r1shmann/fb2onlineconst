@@ -10,7 +10,7 @@
     <body>
         <header>
             <nav class="blue darken-3" role="navigation">
-                <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img style="responsive-img" src="images/style/logo.png" ></a>
+                <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="images/style/logo.png" ></a>
                     <ul class="right hide-on-med-and-down">
                       <li><a href="index.php">На главную</a></li>
                     </ul>
@@ -24,30 +24,18 @@
         </header>
         <main>
             <div class="container">
-            <div class="row">
-                <div class="input-field col l4 s12 m6">
-                    <input value="" id="author" type="text" class="validate">
-                    <label for="author">Автор</label>
+                <div class="row">
+                    <div class="input-field col l4 m4 s12">
+                        <i class="material-icons prefix">text_fields</i>
+                        <input value="" id="first_name" type="text" class="validate">
+                        <label for="first_name">Автор</label>
+                    </div>
+                    <div class="input-field col l8 m8 s12">
+                        <i class="material-icons prefix">text_fields</i>
+                        <input value="" id="book_name" type="text" class="validate">
+                        <label for="book_name">Название</label>
+                    </div>
                 </div>
-                <div class="input-field col l8 s12 m6">
-                    <input value="" id="first_name2" type="text" class="validate">
-                    <label class="active" for="first_name2">Название</label>
-                </div>
-            </div>
-                
-                <br>
-                <br>
-                <div class="input-field col s12">
-                    <select>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    <label>Materialize Select</label>
-                </div>
-                <br>
-                <br>
             </div>
         </main>
         <footer class="page-footer blue darken-3">

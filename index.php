@@ -5,15 +5,15 @@
 ?>
         <main>
             <div class="container">
-                <form action="#" method="post">
+                <form action="fb2.php" method="post">
                     <div class="row">
                         <div class="input-field col l4 m4 s12">
                             <input value="" id="first_name" type="text" class="validate" name="first_name">
                             <label for="first_name">Автор *</label>
                         </div>
                         <div class="input-field col l8 m8 s12">
-                            <input value="" id="book_name" type="text" class="validate" name="book_name">
-                            <label for="book_name">Название книги *</label>
+                            <input value="" id="book_title" type="text" class="validate" name="book_title">
+                            <label for="book_title">Название книги *</label>
                         </div>
                     </div>
                     <div class="row">
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                         <div class="input-field col l3 m6 s12">
-                            <select multiple name='lang[]'>
+                            <select name='lang'>
                                 <option value="" disabled selected>Язык *</option>
                                 <option value="ru">Русский</option>
                                 <option value="ua">Украинский</option>
@@ -64,15 +64,17 @@
                             </select>
                         </div>
                         <div class="input-field col l3 m6 s12">
-                            <select multiple name='rating[]'>
-                                <option value="" disabled selected>Возраст (RARS) *</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select name='cathegory'>
+                                <option value="" disabled selected>Категория (RARS) *</option>
+                                <option value="0+">0+</option>
+                                <option value="6+">6+</option>
+                                <option value="12+">12+</option>
+                                <option value="16+">16+</option>
+                                <option value="18+">18+</option>
                             </select>
                         </div>
                         <div class="input-field col l3 m6 s12">
-                            <select multiple name='status[]'>
+                            <select name='status'>
                                 <option value="" disabled selected>Статус *</option>
                                 <option value="Закончен">Закончен</option>
                                 <option value="В процессе">В процессе</option>
@@ -82,13 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input value="" id="additional" type="text" class="validate" name="additional">
-                            <label for="additional">Дополнительные сведения</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="annotation" class="materialize-textarea" data-length="500" name="annotation"></textarea>
+                            <textarea id="annotation" class="materialize-textarea" data-length="1000" name="annotation"></textarea>
                             <label for="annotation">Аннотация *</label>
                         </div>
                     </div>

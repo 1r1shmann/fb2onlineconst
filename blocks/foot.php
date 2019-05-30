@@ -11,18 +11,8 @@
                 <div class="container">
                     
                     © <?= date("Y") ?> Irishmann
-                    <div class="grey-text text-lighten-4 right">v.0.0.1 Beta</div>
+                    <div class="grey-text text-lighten-4 right">v.0.0.2 Beta</div>
                 </div>
-            </div>
-            <div id="scrollup" style="display: block; opacity: 1;">
-                <i class="Small material-icons black-text">keyboard_arrow_up</i>
-                <span class="hide-on-small-only hide-on-med-only" style="
-                margin: 0px 5px 0 6px;
-                display: block;
-                float: right;
-                color: #252525;
-                font-weight: bold;
-                ">Вверх</span>
             </div>
         </footer>
         <!--JavaScript at end of body for optimized loading-->
@@ -34,33 +24,7 @@
             $('select').formSelect();
             $('textarea').characterCounter();
         });
-        
-        window.onload = function() { 
-            var scrollUp = document.getElementById('scrollup');
-            scrollUp.onmouseover = function() {
-                scrollUp.style.opacity=0.3;
-                scrollUp.style.filter  = 'alpha(opacity=30)';
-            };
-            scrollUp.onmouseout = function() {
-                scrollUp.style.opacity = 0.5;
-                scrollUp.style.filter  = 'alpha(opacity=50)';
-            };
-            scrollUp.onclick = function() {
-                window.scrollTo(0,0);
-            };
-            window.onscroll = function () {
-                if ( window.pageYOffset > 0 ) {
-                    scrollUp.style.display = 'block';
-                } else {
-                    scrollUp.style.display = 'none';
-                }
-            };
-        };
-        
-        $(document).ready(function () {
-            $("div").last().remove();
-        });
-        
+                
         <?= $script ?>
         </script>
     </body>

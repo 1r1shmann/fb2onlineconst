@@ -6,18 +6,8 @@
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
-            #scrollup {
-                position: fixed;
-                opacity: 0.5;
-                padding: 15px 10px 10px;
-                background: #aaa;
-                border-radius: 5px;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                left: 10px;
-                bottom: 10px;
+            img[alt="www.000webhost.com"]{
                 display: none;
-                cursor: pointer;
             }
         </style>
     </head>

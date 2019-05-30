@@ -198,9 +198,9 @@
         'Э' => 'E',   'Ю' => 'YU',  'Я' => 'YA',
     );
     $bitle = strtr($book_title, $translit); // транслитерация
-    $aor = strtr($avtor, $translit); // транслитерация
+    $aor = strtr($first_name, $translit); // транслитерация
   
-    $ttle = $time."_".$aor."_".$bitle.".fb2";
+    $ttle = $aor . "_" . $bitle . "_" . uniqid() . ".fb2";
     $fb2->save("files/".$ttle);
     $download_link = "files/".$ttle;
     $str_title = "Скачать FB2";

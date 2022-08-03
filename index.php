@@ -5,7 +5,7 @@
 ?>
         <main>
             <div class="container">
-                <form action="fb2.php" method="post">
+                <form id="mainform" action="fb2.php" method="post">
                     <div class="row">
                         <div class="input-field col l4 m4 s12">
                             <input value="" id="first_name" type="text" class="validate" name="first_name">
@@ -337,13 +337,15 @@
                                 <option value="18+">18+</option>
                             </select>
                         </div>
-                        <div class="input-field col l3 m6 s12">
-                            <select name='status'>
-                                <option value="" disabled selected>Статус *</option>
-                                <option value="Закончен">Закончен</option>
-                                <option value="В процессе">В процессе</option>
-                                <option value="Заморожен">Заморожен</option>
-                            </select>
+                        <div class="file-field input-field col l3 m6 s12">
+                            <div class="btn blue darken-3">
+                                <span>Обложка</span>
+                                <input type="hidden" id="coverpage" name="coverpage">
+                                <input type="file" id="cover_image" name="cover_image" accept=".png, .jpg, .jpeg, .gif">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="JPEG, PNG, GIF">
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -352,13 +354,13 @@
                             <label for="annotation">Аннотация *</label>
                         </div>
                     </div>
-                    <div id="charters">
+                    <div id="chapters">
                         <div class="card-panel">
                             <div class="row">
                                 <div class="col s12">
                                     <div class="input-field">
-                                        <input type="number" class="validate" id="charters_count" value="">
-                                        <label for="charters_count">Кол-во разделов * **</label>
+                                        <input type="number" class="validate" id="chapters_count" value="">
+                                        <label for="chapters_count">Кол-во разделов * **</label>
                                     </div>
                                 </div>
                                 <div class="col s12 center-align">
@@ -386,48 +388,60 @@
 $script = '
         $(document).on("click", "#start", function(event){
             event.preventDefault();
-            var count = $("#charters_count").val();
+            var count = $("#chapters_count").val();
             count = (count == "") ? 1: count;
-            $("#charters").html("");
+            $("#chapters").html("");
             var i = 1;
             while(i <= count){
 
-                $("#charters").append(\'<div data-id=\"\'+i+\'\" class=\"row\">\n\
+                $("#chapters").append(\'<div data-id=\"\'+i+\'\" class=\"row\">\n\
                     <div class=\"input-field col s12\">\n\
-                    <input value=\"\" id=\"charter_title_\'+i+\'\" type=\"text\" class=\"validate\" name=\"charter_title[]\">\n\
-                    <label for=\"charter_title_\'+i+\'\">Название раздела №\'+i+\' *</label>\n\
+                    <input value=\"\" id=\"chapter_title_\'+i+\'\" type=\"text\" class=\"validate\" name=\"chapter_title[]\">\n\
+                    <label for=\"chapter_title_\'+i+\'\">Название раздела №\'+i+\' *</label>\n\
                     </div>\n\
                     <div class=\"input-field col s12\">\n\
-                    <textarea id=\"charter_contents_\'+i+\'\" class=\"materialize-textarea\" name=\"charter_contents[]\"></textarea>\n\
-                    <label for=\"charter_contents_\'+i+\'\">Содержание раздела №\'+i+\' *</label>\n\
+                    <textarea id=\"chapter_contents_\'+i+\'\" class=\"materialize-textarea\" name=\"chapter_contents[]\"></textarea>\n\
+                    <label for=\"chapter_contents_\'+i+\'\">Содержание раздела №\'+i+\' *</label>\n\
                     </div>\n\
                     </div>\n\
                 \');
                 i++;
             };
-            $("#charters").after("<button class=\"btn btn-large waves-effect waves-light blue darken-3\" type=\"submit\" name=\"action\">Построить FB2</button>\n\
-                <a href=\"#\" class=\"btn-floating btn-large waves-effect waves-light right red accent-4\" id=\"add_charter\">\n\
+            $("#chapters").after("<button class=\"btn btn-large waves-effect waves-light blue darken-3\" type=\"submit\" name=\"action\">Построить FB2</button>\n\
+                <a href=\"#\" class=\"btn-floating btn-large waves-effect waves-light right red accent-4\" id=\"add_chapter\">\n\
                 <i class=\"material-icons\">add</i>\n\
                 </a>\n\
             ");
         });
         
-        $(document).on("click", "#add_charter", function(event){
+        $(document).on("click", "#add_chapter", function(event){
             event.preventDefault();
-            var last_id = $("#charters").children().last().data("id");
+            var last_id = $("#chapters").children().last().data("id");
             last_id++;
-            $("#charters").append(\'<div data-id=\"\'+last_id+\'\" class=\"row\">\n\
+            $("#chapters").append(\'<div data-id=\"\'+last_id+\'\" class=\"row\">\n\
                 <div class=\"input-field col s12\">\n\
-                <input value=\"\" id=\"charter_title_\'+last_id+\'\" type=\"text\" class=\"validate\" name=\"charter_title[]\">\n\
-                <label for=\"charter_title_\'+last_id+\'\">Название раздела №\'+last_id+\' *</label>\n\
+                <input value=\"\" id=\"chapter_title_\'+last_id+\'\" type=\"text\" class=\"validate\" name=\"chapter_title[]\">\n\
+                <label for=\"chapter_title_\'+last_id+\'\">Название раздела №\'+last_id+\' *</label>\n\
                 </div>\n\
                 <div class=\"input-field col s12\">\n\
-                <textarea id=\"charter_contents_\'+last_id+\'\" class=\"materialize-textarea\" name=\"charter_contents[]\"></textarea>\n\
-                <label for=\"charter_contents_\'+last_id+\'\">Содержание раздела №\'+last_id+\' *</label>\n\
+                <textarea id=\"chapter_contents_\'+last_id+\'\" class=\"materialize-textarea\" name=\"chapter_contents[]\"></textarea>\n\
+                <label for=\"chapter_contents_\'+last_id+\'\">Содержание раздела №\'+last_id+\' *</label>\n\
                 </div>\n\
                 </div>\n\
             \');
         });
+        $(document).on(\'change\', \'#cover_image\', function(){
+            if(this.files[0].size > (2 * 1024 * 1024)){
+                alert(\'Размер загружаемого файла больше 2 мегабайт!\');
+                $(\'#coverpage\').val(\'\');
+            } else {
+                let reader = new FileReader();
+                reader.addEventListener("loadend", function(result) {
+                    $(\'#coverpage\').val(result.target.result);
+                }, false);
+                reader.readAsDataURL(this.files[0]);
+            }
+    });
 ';
     require_once 'blocks/foot.php';
 ?>

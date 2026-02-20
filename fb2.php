@@ -1,16 +1,59 @@
 <?php
-    $first_name = htmlspecialchars($_POST['first_name']);
-    $book_title = htmlspecialchars($_POST['book_title']);
+    $first_name = htmlspecialchars(trim($_POST['first_name'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $book_title = htmlspecialchars(trim($_POST['book_title'] ?? ''), ENT_QUOTES, 'UTF-8');
 
     //genre - массив жанров
 
-    $lang = htmlspecialchars($_POST['lang']);
-    $cathegory = htmlspecialchars($_POST['cathegory']);
-    $status = htmlspecialchars($_POST['status']);
-    $annotation = htmlspecialchars($_POST['annotation']);
+    $lang = htmlspecialchars(trim($_POST['lang'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $cathegory = htmlspecialchars(trim($_POST['cathegory'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $status = htmlspecialchars(trim($_POST['status'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $annotation = htmlspecialchars(trim($_POST['annotation'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-    $chapters_title = $_POST['chapter_title'];
-    $chapters_contents = $_POST['chapter_contents'];
+    $chapters_title = $_POST['chapter_title'] ?? [];
+    $chapters_contents = $_POST['chapter_contents'] ?? [];
+    $post_genres = $_POST['genre'] ?? [];
+
+    $errors = [];
+    if ($first_name === '') {
+        $errors[] = 'Не заполнено поле «Автор». '; 
+    }
+    if ($book_title === '') {
+        $errors[] = 'Не заполнено поле «Название книги». '; 
+    }
+    if ($lang === '') {
+        $errors[] = 'Не выбран язык книги.';
+    }
+    if ($cathegory === '') {
+        $errors[] = 'Не выбрана возрастная категория.';
+    }
+    if (!is_array($post_genres) || empty($post_genres)) {
+        $errors[] = 'Нужно выбрать хотя бы один жанр.';
+    }
+    if (!is_array($chapters_title) || !is_array($chapters_contents) || count($chapters_title) !== count($chapters_contents) || empty($chapters_title)) {
+        $errors[] = 'Разделы книги заполнены некорректно.';
+    }
+
+    if (!empty($errors)) {
+        $str_title = 'Ошибка заполнения формы';
+        require_once 'blocks/head.php';
+        require_once 'blocks/navbar.php';
+        ?>
+        <main>
+            <div class="container">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h5>Исправьте ошибки и повторите попытку</h5></li>
+                    <?php foreach ($errors as $error): ?>
+                        <li class="collection-item red-text text-darken-2"><?= $error ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <a href="index.php" class="btn blue darken-3">Вернуться к форме</a>
+            </div>
+        </main>
+        <?php
+        $script = '';
+        require_once 'blocks/foot.php';
+        exit;
+    }
 
     $program = "FB2CONST Online by Irishmann v.0.0.1 Beta";
     
@@ -33,7 +76,8 @@
     $description = $fb2->createElement("description");
     $title_info = $fb2->createElement("title-info");
     $description->appendChild($title_info);
-    foreach ($_POST['genre'] as $value) {
+    $genres = [];
+    foreach ($post_genres as $value) {
         $genre = $fb2->createElement("genre", htmlspecialchars($value));
         $title_info->appendChild($genre);
         $genres[] = htmlspecialchars($value);
@@ -104,7 +148,7 @@
     $prog = $fb2->createElement("program-used", $program);
     $document_info->appendChild($prog);
     $id = $fb2->createElement("id", md5($book_title));
-    $document_info->appendChild($prog);
+    $document_info->appendChild($id);
 
     $date = $fb2->createElement("date", date('d.m.Y'));
     $date->setAttribute("value", date('Y-m-d'));

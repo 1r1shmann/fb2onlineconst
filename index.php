@@ -33,6 +33,7 @@
                                     <option value="sf_humor">Юмористическая фантастика</option>
                                     <option value="sf_fantasy">Фэнтези</option>
                                     <option value="sf">Научная Фантастика</option>
+                                </optgroup>
                                 <optgroup label="Детективы и Триллеры">
                                     <option value="det_classic">Классический детектив</option>
                                     <option value="det_police">Полицейский детектив</option>
@@ -46,6 +47,7 @@
                                     <option value="det_hard">Крутой детектив</option>
                                     <option value="thriller">Триллер</option>
                                     <option value="detective">Детектив</option>
+                                </optgroup>
                                 <optgroup label="Проза">
                                     <option value="prose_classic">Классическая проза</option>
                                     <option value="prose_history">Историческая проза</option>
@@ -53,12 +55,14 @@
                                     <option value="prose_counter">Контркультура</option>
                                     <option value="prose_rus_classic">Русская классическая проза</option>
                                     <option value="prose_su_classics">Советская классическая проза</option>
+                                </optgroup>
                                 <optgroup label="Любовные романы">
                                     <option value="love_contemporary">Современные любовные романы</option>
                                     <option value="love_history">Исторические любовные романы</option>
                                     <option value="love_detective">Остросюжетные любовные романы</option>
                                     <option value="love_short">Короткие любовные романы</option>
                                     <option value="love_erotica">Эротика</option>
+                                </optgroup>
                                 <optgroup label="Приключения">
                                     <option value="adv_western">Вестерн</option>
                                     <option value="adv_history">Исторические приключения</option>
@@ -67,6 +71,7 @@
                                     <option value="adv_geo">Путешествия и география</option>
                                     <option value="adv_animal">Природа и животные</option>
                                     <option value="adventure">Прочие приключения</option>
+                                </optgroup>
                                 <optgroup label="Детское">
                                     <option value="child_tale">Сказка</option>
                                     <option value="child_verse">Детские стихи</option>
@@ -76,9 +81,11 @@
                                     <option value="child_adv">Детские приключения</option>
                                     <option value="child_education">Детская образовательная литература</option>
                                     <option value="children">Прочая детская литература</option>
+                                </optgroup>
                                 <optgroup label="Поэзия, Драматургия">
                                     <option value="poetry">Поэзия</option>
                                     <option value="dramaturgy">Драматургия</option>
+                                </optgroup>
                                 <optgroup label="Старинное">
                                     <option value="antique_ant">Античная литература</option>
                                     <option value="antique_european">Европейская старинная литература</option>
@@ -86,6 +93,7 @@
                                     <option value="antique_east">Древневосточная литература</option>
                                     <option value="antique_myths">Мифы. Легенды. Эпос</option>
                                     <option value="antique">Прочая старинная литература</option>
+                                </optgroup>
                                 <optgroup label="Наука, Образование">
                                     <option value="sci_history">История</option>
                                     <option value="sci_psychology">Психология</option>
@@ -103,6 +111,7 @@
                                     <option value="sci_biology">Биология</option>
                                     <option value="sci_tech">Технические науки</option>
                                     <option value="science">Прочая научная литература</option>
+                                </optgroup>
                                 <optgroup label="Компьютеры и Интернет">
                                     <option value="comp_www">Интернет</option>
                                     <option value="comp_programming">Программирование</option>
@@ -111,28 +120,33 @@
                                     <option value="comp_db">Базы данных</option>
                                     <option value="comp_osnet">ОС и Сети</option>
                                     <option value="computers">Прочая околокомпьтерная литература</option>
+                                </optgroup>
                                 <optgroup label="Справочная литература">
                                     <option value="ref_encyc">Энциклопедии</option>
                                     <option value="ref_dict">Словари</option>
                                     <option value="ref_ref">Справочники</option>
                                     <option value="ref_guide">Руководства</option>
                                     <option value="reference">Прочая справочная литература</option>
+                                </optgroup>
                                 <optgroup label="Документальная литература">
                                     <option value="nonf_biography">Биографии и Мемуары</option>
                                     <option value="nonf_publicism">Публицистика</option>
                                     <option value="nonf_criticism">Критика</option>
                                     <option value="design">Искусство и Дизайн</option>
                                     <option value="nonfiction">Прочая документальная литература</option>
+                                </optgroup>
                                 <optgroup label="Религия и духовность">
                                     <option value="religion_rel">Религия</option>
                                     <option value="religion_esoterics">Эзотерика</option>
                                     <option value="religion_self">Самосовершенствование</option>
                                     <option value="religion">Прочая религионая литература</option>
+                                </optgroup>
                                 <optgroup label="Юмор">
                                     <option value="humor_anecdote">Анекдоты</option>
                                     <option value="humor_prose">Юмористическая проза</option>
                                     <option value="humor_verse">Юмористические стихи</option>
                                     <option value="humor">Прочий юмор</option>
+                                </optgroup>
                                 <optgroup label="Домоводство (Дом и семья)">
                                     <option value="home_cooking">Кулинария</option>
                                     <option value="home_pets">Домашние животные</option>
@@ -144,6 +158,7 @@
                                     <option value="home_sport">Спорт</option>
                                     <option value="home_sex">Эротика, Секс</option>
                                     <option value="home">Прочиее домоводство</option>
+                            </optgroup>
                             </select>
                         </div>
                         <div class="input-field col l3 m6 s12">
@@ -359,7 +374,7 @@
                             <div class="row">
                                 <div class="col s12">
                                     <div class="input-field">
-                                        <input type="number" class="validate" id="chapters_count" value="">
+                                        <input type="number" class="validate" id="chapters_count" value="" min="1">
                                         <label for="chapters_count">Кол-во разделов * **</label>
                                     </div>
                                 </div>
@@ -386,13 +401,15 @@
         </main>
 <?php
 $script = '
-        $(document).on("click", "#start", function(event){
-            event.preventDefault();
-            var count = $("#chapters_count").val();
-            count = (count == "") ? 1: count;
-            $("#chapters").html("");
-            var i = 1;
-            while(i <= count){
+            $(document).on("click", "#start", function(event){
+                event.preventDefault();
+                var count = $("#chapters_count").val();
+                count = (count == "") ? 1: count;
+                count = Math.max(1, parseInt(count, 10) || 1);
+                $("#chapters").html("");
+                $("#build_actions").remove();
+                var i = 1;
+                while(i <= count){
 
                 $("#chapters").append(\'<div data-id=\"\'+i+\'\" class=\"row\">\n\
                     <div class=\"input-field col s12\">\n\
@@ -407,11 +424,12 @@ $script = '
                 \');
                 i++;
             };
-            $("#chapters").after("<button class=\"btn btn-large waves-effect waves-light blue darken-3\" type=\"submit\" name=\"action\">Построить FB2</button>\n\
+            $("#chapters").after("<div id=\"build_actions\">\n\
+                <button class=\"btn btn-large waves-effect waves-light blue darken-3\" type=\"submit\" name=\"action\">Построить FB2</button>\n\
                 <a href=\"#\" class=\"btn-floating btn-large waves-effect waves-light right red accent-4\" id=\"add_chapter\">\n\
                 <i class=\"material-icons\">add</i>\n\
                 </a>\n\
-            ");
+            </div>");
         });
         
         $(document).on("click", "#add_chapter", function(event){

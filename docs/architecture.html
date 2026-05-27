@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Архитектура</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+    <strong>FB2CONST Docs</strong>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="installation.html">Установка</a>
+        <a href="usage.html">Использование</a>
+        <a href="architecture.html">Архитектура</a>
+        <a href="security.html">Безопасность</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Архитектура</h1>
+
+    <pre>
+index.php → fb2.php → DOMDocument → FB2 XML → /files
+    </pre>
+
+    <h2>Компоненты</h2>
+    <ul>
+        <li>Frontend: HTML + jQuery + Materialize</li>
+        <li>Backend: PHP</li>
+        <li>Storage: файловая система</li>
+    </ul>
+
+    <h2>Генерация FB2</h2>
+    <ul>
+        <li>description</li>
+        <li>title-info</li>
+        <li>body</li>
+        <li>binary (обложка)</li>
+    </ul>
+
+    <p><a href="security.html">→ Безопасность</a></p>
+</div>
+
+</body>
+</html>
